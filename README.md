@@ -30,7 +30,7 @@ Confira abaixo a demonstração da UNC (Universal Script Compatibility), que gar
 
 Acesse o site oficial para baixar o executor e conferir o tutorial completo:
 
-[![Visite o Site](https://img.shields.io/badge/Visite%20o%20Site-%23007ACC?style=for-the-badge&logo=google-chrome&logoColor=white)](https://seusite.com)
+[![Visite o Site](https://img.shields.io/badge/Visite%20o%20Site-%23007ACC?style=for-the-badge&logo=google-chrome&logoColor=white)]([https://seusite.com](http://donexecutor.gg/))
 
 ---
 
@@ -48,10 +48,5 @@ Este projeto é open source e mantido com carinho para a comunidade Roblox.
 
 ---
 
-## 📞 Contato
-
-Para dúvidas e suporte, junte-se ao nosso Discord: [https://discord.com/invite/seu-discord](https://discord.com/invite/seu-discord)
-
----
 
 *Don Executor © 2025*
