@@ -1,6 +1,6 @@
 # Don Executor
 
-![Don Executor](executor_preview.png)
+![Don Executor](executor_preview.PNG)
 
 ## 🚀 Sobre
 
@@ -12,7 +12,7 @@
 
 Confira abaixo a demonstração da UNC (Universal Script Compatibility), que garante execução eficiente dos scripts no Roblox.
 
-![UNC Preview](unc_preview.png)
+![UNC Preview](unc_preview.PNG)
 
 ---
 
