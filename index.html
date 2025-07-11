@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Don Executor • v1.0</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --surface: #1E1E1E;
+      --surface2: #242424;
+      --primary: #007ACC;
+      --primary-light: #1A8CFF;
+      --text: #E0E0E0;
+      --muted: #888;
+      --radius: 12px;
+      --shadow: rgba(0,0,0,0.6);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: var(--surface);
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 4px 12px var(--shadow);
+      z-index: 10;
+      animation: slideDown .8s ease-out;
+    }
+
+    header img {
+      height: 50px;
+      transition: transform .4s ease;
+    }
+
+    header img:hover {
+      transform: rotate(5deg) scale(1.05);
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .version {
+      font-size: .9rem;
+      color: var(--muted);
+      margin-left: 8px;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .main-hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+      animation: fadeIn 1s ease;
+    }
+
+    .main-hero-text {
+      flex: 1;
+      padding-right: 30px;
+    }
+
+    .main-hero-text h2 {
+      font-size: 2.25rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .main-hero-text p {
+      font-size: 1.125rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .main-hero-img {
+      flex: 1;
+      text-align: center;
+    }
+
+    .main-hero-img img {
+      max-width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px var(--shadow);
+      cursor: pointer;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+    .info-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin: 40px 20px;
+    }
+
+    .card {
+      background: var(--surface2);
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 16px var(--shadow);
+      transition: transform .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h3 {
+      font-size: 1.125rem;
+      color: var(--primary-light);
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--text);
+      font-size: .95rem;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 40px 20px;
+      flex-wrap: wrap;
+    }
+
+    .actions a {
+      padding: 14px 28px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 20px var(--shadow);
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform .2s, background .2s, box-shadow .2s;
+    }
+
+    .actions a:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+
+    .actions a:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    section {
+      background: var(--surface);
+      margin: 40px 20px;
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 16px var(--shadow);
+      animation: fadeIn 1s ease;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+      color: #fff;
+      border-left: 4px solid var(--primary);
+      padding-left: 12px;
+      margin-bottom: 16px;
+    }
+
+    section p, section li {
+      font-size: .95rem;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    section ol, section ul {
+      padding-left: 20px;
+    }
+
+    .code {
+      background: #111;
+      padding: 18px;
+      border-radius: var(--radius);
+      font-family: Consolas, monospace;
+      color: #ddd;
+      overflow-x: auto;
+      border-left: 4px solid var(--primary-light);
+      margin: 20px 0;
+    }
+
+    .image-preview {
+      max-width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .image-preview:hover {
+      transform: scale(1.02);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--muted);
+      font-size: .875rem;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      border-radius: 12px;
+      animation: zoom .3s ease;
+      box-shadow: 0 0 30px #000;
+    }
+
+    @keyframes zoom {
+      from {transform: scale(0.6);}
+      to {transform: scale(1);}
+    }
+
+    .modal:target {
+      display: block;
+    }
+
+    @media (max-width: 800px) {
+      .main-hero {
+        flex-direction: column;
+      }
+      .main-hero-text {
+        padding: 0;
+        margin-bottom: 30px;
+      }
+      .actions {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display:flex;align-items:center;">
+    <img src="logo.png" alt="Don Executor Logo">
+    <h1>Don Executor<span class="version">v1.0</span></h1>
+  </div>
+</header>
+
+<article class="main-hero">
+  <div class="main-hero-text">
+    <h2>Execute scripts no Roblox com estilo moderno</h2>
+    <p>
+      Interface clean, Monaco Editor integrado, alto UNC e API fácil de usar — tudo pronto para o seu próximo nível.
+    </p>
+    <div class="actions">
+      <a href="link-do-download.exe">📥 Baixar Agora</a>
+      <a href="#api">⚙️ Ver API</a>
+    </div>
+  </div>
+  <div class="main-hero-img">
+    <a href="#modal1"><img src="executor_preview.png" alt="Executor Preview"></a>
+  </div>
+</article>
+
+<div class="info-cards">
+  <div class="card"><h3>🧠 API</h3><p>Don.api – integração com Windows Forms</p></div>
+  <div class="card"><h3>📈 UNC</h3><p>83% de compatibilidade com scripts modernos</p></div>
+  <div class="card"><h3>📦 Versão</h3><p>Don Executor v1.0 – Estável e leve</p></div>
+</div>
+
+<section id="unc">
+  <h2>📊 Visualização da UNC</h2>
+  <p>Clique na imagem para ampliar a visualização de como a UNC funciona em tempo real:</p>
+  <div style="text-align:center; margin-top:20px;">
+    <a href="#modal2"><img class="image-preview" src="unc_preview.png" alt="UNC Preview"></a>
+  </div>
+</section>
+
+<section id="api">
+  <h2>📄 Don.api – Download & Instruções</h2>
+  <p>Adicione a DLL <strong>Don.api</strong> como referência no seu projeto no Visual Studio.</p>
+  <div class="actions">
+    <a href="link-para-Don.api.dll" download>📦 Download API</a>
+  </div>
+  <h2>🚀 Como usar</h2>
+  <ol>
+    <li>Adicione a DLL no seu projeto.</li>
+    <li>Crie botões <strong>Inject</strong> e <strong>Execute</strong> no seu Form.</li>
+    <li>Use os códigos abaixo nos eventos <code>Click</code>:</li>
+  </ol>
+  <div class="code">Don.Class1.Modules.Inject();</div>
+  <div class="code">Don.Class1.Modules.ExecuteScript(richTextBox1.Text);</div>
+</section>
+
+<footer>&copy; 2025 Don Executor • Todos os direitos reservados</footer>
+
+<!-- Modal para executor_preview -->
+<div id="modal1" class="modal" onclick="location.href='#'">
+  <img class="modal-content" src="executor_preview.png" alt="Executor Preview">
+</div>
+
+<!-- Modal para unc_preview -->
+<div id="modal2" class="modal" onclick="location.href='#'">
+  <img class="modal-content" src="unc_preview.png" alt="UNC Preview">
+</div>
+
+</body>
+</html>
